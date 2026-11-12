@@ -1,0 +1,9 @@
+PHOTO SLOTS - Global SLK Travels website
+Save photos into this "img" folder with exactly these names (lowercase, .jpg). They appear automatically.
+
+hero.jpg      Framed photo at the top of the page (portrait shape)
+sigiriya.jpg  "The Rock" card
+galle.jpg     "The Road to Galle" card
+beach.jpg     "South Beach Lifestyle" card
+
+Only use photos the company owns or has permission to use.

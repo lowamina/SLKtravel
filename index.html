@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global SLK Travels | Tour Packages &amp; Airport Transfers in Sri Lanka – Concept Demo</title>
+  <meta name="description" content="Global SLK Travels, a registered travel company in Colombo. Personalised tour packages, airport transfers and complete guidance across Sri Lanka.">
+  <!-- Demo only: stops Google from listing this page. REMOVE when the real site goes live. -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Outfit:wght@300;400;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --maroon: #7a1f2b;
+      --maroon-deep: #56131c;
+      --saffron: #f0a202;
+      --saffron-dark: #cf8a00;
+      --green: #0f6b4f;
+      --cream: #fdf7ea;
+      --paper: #fffdf8;
+      --ink: #2a1c1e;
+      --muted: #7c6a6c;
+      --line: #e8dcc4;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Outfit', sans-serif; color: var(--ink); background: var(--cream); overflow-x: hidden; }
+    h1, h2, h3, h4, h5 { color: inherit; }
+    h1, h2, h3, h4, h5 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; letter-spacing: -.5px; }
+    .mono { font-family: 'Courier Prime', monospace; }
+    section { padding: 96px 0; }
+    .muted { color: var(--muted); }
+    .tag { font-family: 'Courier Prime', monospace; font-weight: 700; font-size: .8rem; letter-spacing: 3px; text-transform: uppercase; color: var(--maroon); }
+    .title { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.02; }
+    .title mark { background: linear-gradient(transparent 62%, var(--saffron) 62%); color: inherit; padding: 0 4px; }
+
+    .demo-top { background: var(--ink); color: var(--cream); text-align: center; font-size: .78rem; padding: 6px; }
+
+    /* Nav */
+    .navbar { background: var(--paper); border-bottom: 2px solid var(--ink); }
+    .navbar-brand { display: flex; align-items: center; gap: 10px; font-family: 'Bricolage Grotesque'; font-weight: 800; color: var(--ink) !important; }
+    .navbar-brand img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--ink); }
+    .navbar .nav-link { color: var(--ink) !important; font-weight: 600; }
+    .navbar .nav-link:hover { color: var(--maroon) !important; }
+
+    .btn-ink { background: var(--ink); color: var(--cream); border: 2px solid var(--ink); border-radius: 10px; padding: 13px 26px; font-weight: 600; box-shadow: 4px 4px 0 var(--saffron); transition: .15s; }
+    .btn-ink:hover { background: var(--ink); color: #fff; transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--saffron); }
+    .btn-saffron { background: var(--saffron); color: var(--ink); border: 2px solid var(--ink); border-radius: 10px; padding: 13px 26px; font-weight: 600; box-shadow: 4px 4px 0 var(--ink); transition: .15s; }
+    .btn-saffron:hover { background: var(--saffron-dark); color: var(--ink); transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+    .btn-plain { border: 2px solid var(--ink); color: var(--ink); border-radius: 10px; padding: 13px 26px; font-weight: 600; background: var(--paper); }
+    .btn-plain:hover { background: var(--ink); color: var(--cream); }
+
+    /* Hero */
+    .hero { padding: 80px 0 90px; position: relative; overflow: hidden; }
+    .hero h1 { font-size: clamp(2.9rem, 7.5vw, 5.6rem); line-height: .95; }
+    .hero h1 em { font-style: normal; color: var(--maroon); }
+    .reg { display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--green); color: var(--green); border-radius: 50px; padding: 6px 16px; font-weight: 600; font-size: .9rem; background: #eaf5f0; }
+    .hero-card { background: var(--paper); border: 2px solid var(--ink); border-radius: 22px; box-shadow: 10px 10px 0 var(--maroon); padding: 14px; transform: rotate(2deg); max-width: 430px; margin-left: auto; }
+    .hero-card .ph { aspect-ratio: 4/5; border-radius: 12px; }
+    .hero-card .cap { display: flex; justify-content: space-between; align-items: center; padding: 14px 6px 4px; }
+    .stamp { position: absolute; width: 120px; height: 120px; border: 3px double var(--maroon); border-radius: 50%; color: var(--maroon); display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Courier Prime'; font-weight: 700; font-size: .7rem; letter-spacing: 2px; text-align: center; transform: rotate(-14deg); opacity: .85; background: rgba(253,247,234,.9); }
+    .stamp b { font-size: 1.15rem; letter-spacing: 1px; }
+
+    /* Photo slots */
+    .ph { background: linear-gradient(150deg, #f3c56b, #c9601f 60%, #7a1f2b); color: rgba(255,255,255,.85); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background-size: cover; background-position: center; }
+    .ph.g { background-image: linear-gradient(150deg, #7bc4a4, #0f6b4f); }
+    .ph.b { background-image: linear-gradient(150deg, #7fc3e8, #1f5f8f); }
+    .ph i { font-size: 2.2rem; }
+    .has-img > i, .has-img > small { display: none; }
+
+    /* Services */
+    .svc { background: var(--paper); border: 2px solid var(--ink); border-radius: 18px; padding: 30px; height: 100%; transition: .2s; }
+    .svc:hover { box-shadow: 8px 8px 0 var(--saffron); transform: translate(-3px, -3px); }
+    .svc .ic { width: 58px; height: 58px; border-radius: 14px; background: var(--saffron); border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 18px; }
+
+    /* Boarding-pass package cards */
+    .filters button { background: var(--paper); border: 2px solid var(--ink); border-radius: 50px; padding: 8px 20px; margin: 0 8px 10px 0; font-weight: 600; }
+    .filters button.active { background: var(--ink); color: var(--cream); }
+    .pass { display: flex; background: var(--paper); border: 2px solid var(--ink); border-radius: 18px; overflow: hidden; height: 100%; }
+    .pass .main { flex: 1; padding: 26px; }
+    .pass .stub { width: 132px; background: var(--maroon); color: var(--cream); padding: 22px 14px; text-align: center; border-left: 2px dashed var(--cream); display: flex; flex-direction: column; justify-content: center; position: relative; }
+    .pass .stub::before, .pass .stub::after { content: ''; position: absolute; left: -11px; width: 20px; height: 20px; border-radius: 50%; background: var(--cream); border: 2px solid var(--ink); }
+    .pass .stub::before { top: -11px; } .pass .stub::after { bottom: -11px; }
+    .pass .days { font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 3rem; line-height: 1; color: var(--saffron); }
+    .pass .route { font-family: 'Courier Prime'; font-weight: 700; letter-spacing: 1px; color: var(--maroon); font-size: .85rem; }
+    .pass ul { list-style: none; padding: 0; margin: 12px 0 18px; color: var(--muted); font-size: .95rem; }
+    .pass li i { color: var(--green); margin-right: 8px; }
+    @media (max-width: 575px) { .pass { flex-direction: column; } .pass .stub { width: 100%; border-left: 0; border-top: 2px dashed var(--cream); flex-direction: row; align-items: center; justify-content: center; gap: 14px; } .pass .stub::before, .pass .stub::after { display: none; } }
+
+    /* Steps */
+    .steps { background: var(--maroon); color: var(--cream); }
+    .steps .title mark { color: var(--ink); }
+    .step .n { font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 4rem; line-height: 1; color: var(--saffron); }
+    .step p { color: #ecd9d2; }
+
+    /* Places */
+    .place { border: 2px solid var(--ink); border-radius: 18px; overflow: hidden; background: var(--paper); height: 100%; }
+    .place .ph { aspect-ratio: 4/3; }
+    .place .b { padding: 16px 18px; display: flex; justify-content: space-between; align-items: center; }
+
+    /* Transfer form */
+    .tf { background: var(--paper); border: 2px solid var(--ink); border-radius: 22px; padding: 36px; box-shadow: 10px 10px 0 var(--green); }
+    .tf label { font-family: 'Courier Prime'; font-weight: 700; font-size: .75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .tf .form-control, .tf .form-select { border: 2px solid var(--ink); border-radius: 10px; padding: 11px 12px; background: #fff; }
+    .tf .form-control:focus, .tf .form-select:focus { box-shadow: 3px 3px 0 var(--saffron); border-color: var(--ink); }
+
+    /* Contact */
+    .contact { background: var(--ink); color: var(--cream); }
+    .contact a { color: var(--cream); text-decoration: none; }
+    .c-line { display: flex; gap: 14px; margin-bottom: 16px; } .c-line i { color: var(--saffron); font-size: 1.3rem; }
+    .contact iframe { width: 100%; height: 100%; min-height: 340px; border: 2px solid var(--cream); border-radius: 18px; }
+
+    footer { padding: 30px 0; font-size: .9rem; color: var(--muted); }
+    footer img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--ink); }
+
+    .wa { position: fixed; right: 20px; bottom: 20px; background: #25d366; color: #fff; border: 2px solid var(--ink); border-radius: 50px; padding: 12px 20px; font-weight: 600; text-decoration: none; z-index: 999; box-shadow: 4px 4px 0 var(--ink); }
+    .wa:hover { color: #fff; }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: .7s ease; }
+    .reveal.show { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- DEMO NOTICE: remove after the owner approves -->
+  <div class="demo-top">Concept demo prepared for Global SLK Travels · packages and photos are samples</div>
+
+  <!-- ===== NAV ===== -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home"><img src="logo.png" alt="Global SLK Travels logo"> Global SLK Travels</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+          <li class="nav-item"><a class="nav-link" href="#places">Places</a></li>
+          <li class="nav-item"><a class="nav-link" href="#transfer">Airport Transfer</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-saffron btn-sm" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7 reveal">
+          <span class="reg"><i class="bi bi-patch-check-fill"></i>Registered Travel Company</span>
+          <h1 class="mt-4">Discover <em>Sri Lanka</em> with us.</h1>
+          <p class="lead muted my-4" style="max-width:520px">Personalised tour packages, airport transfers and complete guidance from the moment you land to the day you leave.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#packages" class="btn btn-ink">See Tour Packages</a>
+            <a href="#transfer" class="btn btn-plain"><i class="bi bi-airplane me-2"></i>Book a Transfer</a>
+          </div>
+        </div>
+        <div class="col-lg-5 reveal">
+          <div class="position-relative">
+            <div class="hero-card">
+              <div class="ph" data-img="hero.jpg"><i class="bi bi-image"></i><small class="mt-2">Your best travel photo</small></div>
+              <div class="cap"><b>Sri Lanka</b><span class="mono muted">7.87° N · 80.77° E</span></div>
+            </div>
+            <div class="stamp" style="right:8px;top:-44px"><span>ARRIVED</span><b>COLOMBO</b><span>SRI LANKA</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="pt-0">
+    <div class="container">
+      <div class="mb-5 reveal"><div class="tag">What we do</div><h2 class="title mt-2">Three things, <mark>done properly</mark></h2></div>
+      <div class="row g-4">
+        <div class="col-md-4 reveal"><div class="svc"><div class="ic"><i class="bi bi-map"></i></div><h4>Personalised Tour Packages</h4><p class="muted mb-0">Tours planned around your dates, budget and the places you most want to see.</p></div></div>
+        <div class="col-md-4 reveal"><div class="svc"><div class="ic"><i class="bi bi-airplane"></i></div><h4>Airport Transfers</h4><p class="muted mb-0">Reliable pickup and drop-off between the airport and anywhere on the island.</p></div></div>
+        <div class="col-md-4 reveal"><div class="svc"><div class="ic"><i class="bi bi-headset"></i></div><h4>Complete Guidance</h4><p class="muted mb-0">Advice and support throughout your trip, so you never have to work things out alone.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PACKAGES ===== -->
+  <section id="packages" class="pt-0">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4 reveal">
+        <div><div class="tag">Tour packages</div><h2 class="title mt-2 mb-0">Pick your <mark>boarding pass</mark></h2></div>
+        <div class="filters">
+          <button class="active" data-f="all">All</button>
+          <button data-f="short">2–4 days</button>
+          <button data-f="week">5–7 days</button>
+          <button data-f="long">8+ days</button>
+        </div>
+      </div>
+      <div class="row g-4" id="passGrid"></div>
+      <p class="muted small mt-4"><i class="bi bi-info-circle me-1"></i>Sample packages. The company's real packages and prices go here.</p>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="steps">
+    <div class="container">
+      <div class="mb-5 reveal"><div class="tag" style="color:var(--saffron)">How it works</div><h2 class="title mt-2">From message to <mark>holiday</mark></h2></div>
+      <div class="row g-5">
+        <div class="col-md-4 reveal"><div class="step"><div class="n">01</div><h4 class="mt-2">Tell us your plan</h4><p>Send your dates, group size and what you'd love to see.</p></div></div>
+        <div class="col-md-4 reveal"><div class="step"><div class="n">02</div><h4 class="mt-2">Get your itinerary</h4><p>We prepare a personalised route and a clear quote.</p></div></div>
+        <div class="col-md-4 reveal"><div class="step"><div class="n">03</div><h4 class="mt-2">Travel with guidance</h4><p>We meet you at the airport and stay in touch the whole way.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PLACES ===== -->
+  <section id="places">
+    <div class="container">
+      <div class="mb-5 reveal"><div class="tag">Where we take you</div><h2 class="title mt-2">Places you'll <mark>remember</mark></h2></div>
+      <div class="row g-4">
+        <div class="col-md-4 reveal"><div class="place"><div class="ph" data-img="sigiriya.jpg"><i class="bi bi-image"></i><small class="mt-2">Photo</small></div><div class="b"><div><h5 class="mb-0">The Rock</h5><span class="mono muted small">SIGIRIYA</span></div><i class="bi bi-arrow-up-right fs-4"></i></div></div></div>
+        <div class="col-md-4 reveal"><div class="place"><div class="ph g" data-img="galle.jpg"><i class="bi bi-image"></i><small class="mt-2">Photo</small></div><div class="b"><div><h5 class="mb-0">The Road to Galle</h5><span class="mono muted small">GALLE</span></div><i class="bi bi-arrow-up-right fs-4"></i></div></div></div>
+        <div class="col-md-4 reveal"><div class="place"><div class="ph b" data-img="beach.jpg"><i class="bi bi-image"></i><small class="mt-2">Photo</small></div><div class="b"><div><h5 class="mb-0">South Beach Lifestyle</h5><span class="mono muted small">SOUTH COAST</span></div><i class="bi bi-arrow-up-right fs-4"></i></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AIRPORT TRANSFER ===== -->
+  <section id="transfer" class="pt-0">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5 reveal">
+          <div class="tag">Airport transfers</div>
+          <h2 class="title mt-2">Land. Walk out. <mark>Your driver is there.</mark></h2>
+          <p class="muted mt-3">Fill in your trip and send it to us on WhatsApp. We'll reply with the fare and confirm your driver.</p>
+          <ul class="list-unstyled mt-4">
+            <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color:var(--green)"></i>Pickup at any time of day</li>
+            <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color:var(--green)"></i>Cars, vans and larger vehicles</li>
+            <li class="mb-2"><i class="bi bi-check2-circle me-2" style="color:var(--green)"></i>Fare confirmed before you travel</li>
+          </ul>
+        </div>
+        <div class="col-lg-7 reveal">
+          <div class="tf">
+            <div class="row g-3">
+              <div class="col-md-6"><label class="d-block">Pickup from</label>
+                <select id="tFrom" class="form-select"><option>Colombo Airport (CMB), Katunayake</option><option>Mattala Airport (HRI)</option><option>Colombo city</option><option>Other (I'll say in the message)</option></select></div>
+              <div class="col-md-6"><label class="d-block">Drop-off at</label><input id="tTo" class="form-control" placeholder="Hotel or town"></div>
+              <div class="col-md-4"><label class="d-block">Date</label><input id="tDate" type="date" class="form-control"></div>
+              <div class="col-md-4"><label class="d-block">Time</label><input id="tTime" type="time" class="form-control"></div>
+              <div class="col-md-4"><label class="d-block">Passengers</label><input id="tPax" type="number" min="1" value="2" class="form-control"></div>
+              <div class="col-md-6"><label class="d-block">Vehicle</label>
+                <select id="tCar" class="form-select"><option>Car</option><option>Van</option><option>Mini bus</option><option>Not sure, please suggest</option></select></div>
+              <div class="col-md-6"><label class="d-block">Your name</label><input id="tName" class="form-control" placeholder="Name"></div>
+              <div class="col-12"><button class="btn btn-ink w-100" onclick="sendTransfer()"><i class="bi bi-whatsapp me-2"></i>Send Transfer Request</button></div>
+              <div class="col-12"><small id="tMsg" style="color:var(--maroon)"></small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5 reveal">
+          <div class="tag" style="color:var(--saffron)">Contact</div>
+          <h2 class="title mt-2 mb-4">Let's plan your trip</h2>
+          <div class="c-line"><i class="bi bi-whatsapp"></i><a href="https://wa.me/94743670939" target="_blank">+94 743 670 939</a></div>
+          <div class="c-line"><i class="bi bi-geo-alt-fill"></i><div>Sanchi Arachchi Gardens,<br>Colombo 12, Sri Lanka</div></div>
+          <div class="c-line"><i class="bi bi-instagram"></i><a href="https://www.instagram.com/globalslktravels/" target="_blank">@globalslktravels</a></div>
+          <div class="c-line"><i class="bi bi-facebook"></i><span>SLK Global Tours</span></div>
+          <a href="https://wa.me/94743670939?text=Hi%20Global%20SLK%20Travels!%20I'd%20like%20to%20plan%20a%20trip." target="_blank" class="btn btn-saffron mt-2"><i class="bi bi-whatsapp me-2"></i>Chat on WhatsApp</a>
+        </div>
+        <div class="col-lg-7 reveal"><iframe src="https://maps.google.com/maps?q=Sanchi%20Arachchi%20Gardens%2C%20Colombo%2012&z=15&output=embed" loading="lazy" title="Map"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <span class="d-flex align-items-center gap-2"><img src="logo.png" alt=""> <b style="color:var(--ink)">Global SLK Travels</b></span>
+      <span>&copy; <span id="yr"></span> Global SLK Travels · Registered Travel Company</span>
+      <span>Website by Lowamina Pigera</span>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/94743670939" target="_blank" class="wa"><i class="bi bi-whatsapp me-2"></i>WhatsApp</a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    /* ========== SETTINGS ========== */
+    const WHATSAPP = '94743670939';
+
+    // SAMPLE packages. Replace with the company's real ones. price: text shown on the card.
+    const PACKAGES = [
+      { name: 'Southern Coast Escape', days: 3, route: 'CMB → GALLE → MIRISSA', price: 'Ask for quote',
+        points: ['Galle Fort walk', 'Beach time on the south coast', 'Private vehicle and driver'] },
+      { name: 'Cultural Triangle', days: 4, route: 'CMB → SIGIRIYA → KANDY', price: 'Ask for quote',
+        points: ['Climb Sigiriya rock', 'Dambulla cave temple', 'Temple of the Tooth, Kandy'] },
+      { name: 'Hill Country Rails', days: 6, route: 'KANDY → NUWARA ELIYA → ELLA', price: 'Ask for quote',
+        points: ['Scenic train journey', 'Tea plantation visit', 'Nine Arch Bridge'] },
+      { name: 'Grand Island Tour', days: 10, route: 'CMB → NORTH → HILLS → SOUTH', price: 'Ask for quote',
+        points: ['Culture, hills, wildlife and beaches', 'Safari day', 'Airport pickup and drop-off'] }
+    ];
+    /* ============================== */
+
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    const band = d => d <= 4 ? 'short' : d <= 7 ? 'week' : 'long';
+
+    function renderPasses(f) {
+      const list = PACKAGES.filter(p => f === 'all' || band(p.days) === f);
+      document.getElementById('passGrid').innerHTML = list.length ? list.map(p => {
+        const msg = encodeURIComponent(`Hi Global SLK Travels! I'm interested in the ${p.name} package (${p.days} days). Please send me the details and price.`);
+        return `
+        <div class="col-lg-6">
+          <div class="pass">
+            <div class="main">
+              <div class="route">${p.route}</div>
+              <h4 class="mt-1">${p.name}</h4>
+              <ul>${p.points.map(x => `<li><i class="bi bi-check2"></i>${x}</li>`).join('')}</ul>
+              <a href="https://wa.me/${WHATSAPP}?text=${msg}" target="_blank" class="btn btn-saffron btn-sm"><i class="bi bi-whatsapp me-1"></i>${p.price}</a>
+            </div>
+            <div class="stub"><div class="days">${p.days}</div><div class="mono">DAYS</div></div>
+          </div>
+        </div>`;
+      }).join('') : '<div class="col-12 muted">No packages of this length yet. Message us and we will build one for you.</div>';
+    }
+    document.querySelectorAll('.filters button').forEach(b => b.addEventListener('click', () => {
+      document.querySelectorAll('.filters button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active'); renderPasses(b.dataset.f);
+    }));
+    renderPasses('all');
+
+    function sendTransfer() {
+      const v = id => document.getElementById(id).value.trim(), msg = document.getElementById('tMsg');
+      if (!v('tName') || !v('tTo') || !v('tDate')) { msg.textContent = 'Please fill in your name, drop-off place and date.'; return; }
+      msg.textContent = '';
+      const text = `Hi Global SLK Travels! I'd like an airport transfer.\nName: ${v('tName')}\nPickup: ${v('tFrom')}\nDrop-off: ${v('tTo')}\nDate: ${v('tDate')}\nTime: ${v('tTime') || 'to be confirmed'}\nPassengers: ${v('tPax')}\nVehicle: ${v('tCar')}\nPlease send me the fare.`;
+      window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    // Photo slots: put photos in the "img" folder (names in img/PHOTOS.txt) and they appear
+    document.querySelectorAll('[data-img]').forEach(el => {
+      const src = 'img/' + el.dataset.img, test = new Image();
+      test.onload = () => { el.style.backgroundImage = `url("${src}")`; el.classList.add('has-img'); };
+      test.src = src;
+    });
+
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+    }), { threshold: .1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
